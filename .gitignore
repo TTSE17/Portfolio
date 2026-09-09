@@ -1,3 +1,15 @@
-# Ignore a specific file
-test
-Js/BS/BS.html
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs & temp
+*.log
+.tmp/

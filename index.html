@@ -1,996 +1,1434 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="css/all.min.css" />
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/BS/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/master.css" />
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
+    <title>Taha Alsheikh Taha — .NET Backend Developer</title>
+    <meta
+      name="description"
+      content="Software engineer specialising in .NET backend development. I build secure, scalable ASP.NET Core APIs with Clean Architecture, CQRS, EF Core, SQL Server and PostgreSQL. Based in Damascus, Syria."
+    />
+    <meta name="author" content="Taha Alsheikh Taha" />
+    <meta name="theme-color" content="#0a0b0e" />
+    <link rel="canonical" href="https://ttse17.github.io/Portfolio/" />
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Taha Alsheikh Taha" />
+    <meta
+      property="og:title"
+      content="Taha Alsheikh Taha — .NET Backend Developer"
+    />
+    <meta
+      property="og:description"
+      content="Backend developer specialising in ASP.NET Core, Clean Architecture, CQRS and EF Core. See my projects and experience."
+    />
+    <meta property="og:url" content="https://ttse17.github.io/Portfolio/" />
+    <meta
+      property="og:image"
+      content="https://ttse17.github.io/Portfolio/imgs/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="favicon.svg" />
+
+    <link rel="preload" as="style" href="css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Set the theme before first paint so there is no flash of the wrong colours. -->
+    <script>
+      (function () {
+        var r = document.documentElement;
+        r.classList.add("js");
+        try {
+          var saved = localStorage.getItem("theme");
+          if (saved === "light" || saved === "dark") {
+            r.setAttribute("data-theme", saved);
+          } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+            r.setAttribute("data-theme", "light");
+          }
+        } catch (e) {
+          /* storage blocked — keep the default dark theme */
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Taha Alsheikh Taha",
+        "jobTitle": "Backend Developer",
+        "email": "mailto:Taha.Alsheikh.Taha@gmail.com",
+        "url": "https://ttse17.github.io/Portfolio/",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Damascus",
+          "addressCountry": "SY"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Damascus University"
+        },
+        "knowsAbout": [
+          "C#",
+          ".NET",
+          "ASP.NET Core",
+          "Entity Framework Core",
+          "Clean Architecture",
+          "CQRS",
+          "SQL Server",
+          "PostgreSQL",
+          "Docker"
+        ],
+        "sameAs": [
+          "https://github.com/TTSE17",
+          "https://www.linkedin.com/in/TTSE17",
+          "https://t.me/TTSE17"
+        ]
+      }
+    </script>
   </head>
 
   <body>
-    <!--  sticky-top-->
-    <nav class="navbar navbar-expand-sm position-fixed w-100">
-      <div class="container bg-blasck py-2 px-3 rounded-4 shadow">
-        <a class="navbar-brand m-0 p-0 text-white" href=""
-          >Portfo<span class="text-primary">lio</span></a
-        >
+    <a class="skip-link" href="#main">Skip to content</a>
 
-        <button
-          class="navbar-toggler shadow-none bg-white"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <!-- ===================================================================
+         Icon sprite — every icon on this page is an inline SVG symbol.
+         No icon font, no external requests.
+         =================================================================== -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      style="display: none"
+      aria-hidden="true"
+    >
+      <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 6 2 12l6 6M16 6l6 6-6 6" />
+      </symbol>
+      <symbol id="i-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <ellipse cx="12" cy="6" rx="8" ry="3" />
+        <path d="M20 6v12c0 1.66-3.58 3-8 3s-8-1.34-8-3V6" />
+        <path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" />
+      </symbol>
+      <symbol id="i-architecture" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="9" y="2.5" width="6" height="5" rx="1.2" />
+        <rect x="2" y="16.5" width="6" height="5" rx="1.2" />
+        <rect x="16" y="16.5" width="6" height="5" rx="1.2" />
+        <path d="M12 7.5v4M5 16.5v-2.5h14v2.5" />
+      </symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3 12h18" />
+        <path d="M12 3c2.4 2.6 3.4 5.7 3.4 9s-1 6.4-3.4 9c-2.4-2.6-3.4-5.7-3.4-9s1-6.4 3.4-9Z" />
+      </symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 3v18h18" />
+        <path d="m7 15 3.5-4 3 2.5L20 7" />
+      </symbol>
+      <symbol id="i-desktop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="12" rx="2" />
+        <path d="M2 20h20M9.5 9 8 10.5 9.5 12M14.5 9l1.5 1.5-1.5 1.5" />
+      </symbol>
+      <symbol id="i-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="7" rx="2" />
+        <rect x="3" y="13" width="18" height="7" rx="2" />
+        <path d="M7 7.5h.01M7 16.5h.01" />
+      </symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2.5 4.5 5.3v6c0 4.8 3.2 8.8 7.5 10.5 4.3-1.7 7.5-5.7 7.5-10.5v-6L12 2.5Z" />
+        <path d="m9 12 2 2 4-4" />
+      </symbol>
+      <symbol id="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9" />
+        <path d="m8.5 12 2.4 2.4L15.8 9.5" />
+      </symbol>
+      <symbol id="i-cube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2.5 3.5 7v10l8.5 4.5 8.5-4.5V7L12 2.5Z" />
+        <path d="M3.5 7 12 11.6 20.5 7M12 11.6V21.5" />
+      </symbol>
+      <symbol id="i-layout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="16" rx="2" />
+        <path d="M3 9h18M9 9v11" />
+      </symbol>
+      <symbol id="i-graduation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3.5 2.5 8.2 12 13l9.5-4.8L12 3.5Z" />
+        <path d="M6.5 10.8V16c0 1.7 2.5 3 5.5 3s5.5-1.3 5.5-3v-5.2M21.5 8.2v6" />
+      </symbol>
+      <symbol id="i-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="5" y="4" width="14" height="17" rx="2" />
+        <path d="M9 2.5h6v3H9zM9 10h6M9 14h6M9 18h4" />
+      </symbol>
+      <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 16.5V13l1.9-4.6A2 2 0 0 1 7.8 7h8.4a2 2 0 0 1 1.9 1.4L20 13v3.5M4 13h16" />
+        <circle cx="7" cy="16.8" r="1.6" />
+        <circle cx="17" cy="16.8" r="1.6" />
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 21.5S19 15.6 19 10.4a7 7 0 1 0-14 0c0 5.2 7 11.1 7 11.1Z" />
+        <circle cx="12" cy="10" r="2.6" />
+      </symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" />
+        <path d="m3.5 7.5 8.5 5.6 8.5-5.6" />
+      </symbol>
+      <symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="5.5" r="2.8" />
+        <circle cx="6" cy="12" r="2.8" />
+        <circle cx="18" cy="18.5" r="2.8" />
+        <path d="m8.5 10.7 7-3.9M8.5 13.3l7 3.9" />
+      </symbol>
+      <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 4h6v6M20 4 11 13" />
+        <path d="M18 14.5V19a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 4 19V8a1.5 1.5 0 0 1 1.5-1.5H10" />
+      </symbol>
+      <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3.5v11M7.5 10.5 12 15l4.5-4.5M4 20h16" />
+      </symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19.5V5M6 11l6-6 6 6" />
+      </symbol>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4.5 12h15M13 5.5 19.5 12 13 18.5" />
+      </symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+      </symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z" />
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m6 6 12 12M18 6 6 18" />
+      </symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.4 8.65 22 11.3 22 14.2V21h-4v-6c0-1.43-.03-3.27-2-3.27-2 0-2.3 1.56-2.3 3.17V21h-4V9Z" />
+      </symbol>
+      <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2.1c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z" />
+      </symbol>
+      <symbol id="i-telegram" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M21.9 4.3 18.6 20c-.25 1.1-.9 1.37-1.83.85l-5.05-3.72-2.44 2.35c-.27.27-.5.5-1.02.5l.36-5.15 9.37-8.47c.4-.36-.09-.56-.63-.2L5.78 13.1.79 11.54c-1.08-.34-1.1-1.08.23-1.6L20.5 2.72c.9-.33 1.69.2 1.4 1.58Z" />
+      </symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.2 0 4.28.86 5.84 2.42a8.2 8.2 0 0 1 2.42 5.83c0 4.54-3.7 8.24-8.25 8.24a8.24 8.24 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.39c0-4.54 3.7-8.24 8.24-8.24Zm-3.2 4.1c-.15 0-.4.06-.61.29-.21.23-.8.79-.8 1.92s.82 2.22.94 2.38c.11.15 1.6 2.44 3.88 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.44-.07 1.35-.55 1.54-1.09.19-.54.19-1 .13-1.1-.06-.1-.21-.15-.44-.27-.23-.11-1.35-.66-1.56-.74-.21-.08-.36-.11-.51.12-.15.23-.58.73-.71.88-.13.15-.26.17-.49.06-.23-.12-.97-.36-1.85-1.14a6.9 6.9 0 0 1-1.28-1.59c-.13-.23-.01-.35.1-.47.1-.1.23-.27.34-.4.12-.14.15-.24.23-.39.08-.15.04-.29-.02-.4-.06-.12-.51-1.24-.7-1.7-.19-.44-.38-.38-.51-.39h-.44Z" />
+      </symbol>
+    </svg>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav justify-content-end flex-grow-1">
-            <li class="nav-item">
-              <a
-                class="nav-link py-2 px-3 text-white"
-                aria-current="page"
-                href="#home"
-              >
-                Home
-              </a>
-            </li>
+    <!-- ===================================================================
+         Header
+         =================================================================== -->
+    <header class="site-header" id="site-header">
+      <div class="container">
+        <nav class="nav" aria-label="Primary">
+          <a class="nav__brand" href="#home">
+            <span class="nav__mark" aria-hidden="true">TT</span>
+            Taha&nbsp;Taha
+          </a>
 
-            <li class="nav-item">
-              <a
-                class="nav-link py-2 px-3 text-white"
-                title="Saved Posts"
-                aria-current="page"
-                href="#skills"
-              >
-                Skills
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a
-                class="nav-link py-2 px-3 text-white"
-                title="Saved Posts"
-                aria-current="page"
-                href="#services"
-              >
-                Services
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a
-                class="nav-link py-2 px-3 text-white"
-                title="Saved Posts"
-                aria-current="page"
-                href="#projects"
-              >
-                Projects
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a
-                class="nav-link py-2 px-3 text-white"
-                title="Saved Posts"
-                aria-current="page"
-                href="#contact"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <div class="home d-flex align-items-center" id="home">
-      <div
-        class="container d-flex gap-sm-0 gap-5 mt-sm-0 mt-5 flex-sm-row flex-column justify-content-between align-items-center text-white"
-      >
-        <div class="info">
-          Hello , My Name Is
-          <h1 class="my-2 text-primary">Taha Taha</h1>
-          <p class="mb-2">Software Engineer</p>
-          <p class="mb-0">.NET Developer</p>
-        </div>
-
-        <div class="image">
-          <img decoding="async" src="imgs/bg.svg" alt="" />
-        </div>
-      </div>
-    </div>
-
-    <div class="skills py-md-4 py-3" id="skills">
-      <div class="container my-5">
-        <h1 class="title mb-5 text-white text-center position-relative">
-          Skills
-        </h1>
-
-        <div class="content d-grid">
-          <div
-            class="card gap-3 p-sm-3 p-2 rounded-3 d-flex flex-row align-items-center"
-          >
-            <div class="image">
-              <img decoding="async" src="imgs/asp.png" alt="" />
+          <div class="nav__menu" id="nav-menu">
+            <div>
+              <ul class="nav__list">
+                <li><a class="nav__link" href="#home">Home</a></li>
+                <li><a class="nav__link" href="#about">About</a></li>
+                <li><a class="nav__link" href="#skills">Skills</a></li>
+                <li><a class="nav__link" href="#projects">Projects</a></li>
+                <li><a class="nav__link" href="#services">Services</a></li>
+                <li><a class="nav__link" href="#contact">Contact</a></li>
+              </ul>
             </div>
-            <div class="text fw-bold fs-5 text-white">.Net</div>
           </div>
 
-          <div
-            class="card gap-3 p-sm-3 p-2 rounded-3 d-flex flex-row align-items-center"
-          >
-            <div class="image">
-              <img decoding="async" src="imgs/db8.png" alt="" />
-            </div>
-            <div class="text fw-bold fs-5 text-white">Database</div>
-          </div>
-
-          <div
-            class="card gap-3 p-sm-3 p-2 rounded-3 d-flex flex-row align-items-center"
-          >
-            <div class="image">
-              <img decoding="async" src="imgs/cc6.png" alt="" />
-            </div>
-            <div class="text fw-bold fs-5 text-white">Clean Code</div>
-          </div>
-
-          <div
-            class="card gap-3 p-sm-3 p-2 rounded-3 d-flex flex-row align-items-center"
-          >
-            <div class="image">
-              <img decoding="async" src="imgs/git4.svg" alt="" />
-            </div>
-            <div class="text fw-bold fs-5 text-white">Git</div>
-          </div>
-
-          <div
-            class="card gap-3 p-sm-3 p-2 rounded-3 d-flex flex-row align-items-center"
-          >
-            <div class="image">
-              <img decoding="async" src="imgs/js.png" alt="" />
-            </div>
-            <div class="text fw-bold fs-5 text-white">JavaScript</div>
-          </div>
-
-          <div
-            class="card gap-3 p-sm-3 p-2 rounded-3 d-flex flex-row align-items-center"
-          >
-            <div class="image">
-              <img decoding="async" src="imgs/html9.svg" alt="" />
-            </div>
-
-            <div class="text fw-bold fs-5 text-white">HTML</div>
-          </div>
-
-          <div
-            class="card gap-3 p-sm-3 p-2 rounded-3 d-flex flex-row align-items-center"
-          >
-            <div class="image">
-              <img decoding="async" src="imgs/css4.png" alt="" />
-            </div>
-            <div class="text fw-bold fs-5 text-white">CSS</div>
-          </div>
-
-          <div
-            class="card gap-3 p-sm-3 p-2 rounded-3 d-flex flex-row align-items-center"
-          >
-            <div class="image">
-              <img decoding="async" src="imgs/bs4.png" alt="" />
-            </div>
-            <div class="text fw-bold fs-5 text-white">Bootstrap</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="services py-md-4 py-3" id="services">
-      <div class="container my-5">
-        <h1 class="title mb-5 text-white text-center position-relative">
-          Services
-        </h1>
-
-        <div class="content d-flex text-white">
-          <div class="service rounded-3 text-center">
-            <i class="fa-solid fa-code fs-1 text-primary"></i>
-            <h5 class="mt-3">Backend Development</h5>
-            <small class="text-white-50 mb-0 d-block px-4">
-              build robust, secure, and scalable backend systems tailored to
-              your business needs, and ensure seamless performance and
-              reliability for your applications
-            </small>
-          </div>
-
-          <div class="service rounded-3 text-center">
-            <i class="fa-solid fa-database fs-1 text-primary"></i>
-            <h5 class="mt-3">Database Design & Management</h5>
-            <small class="text-white-50 mb-0 d-block px-4">
-              design and manage efficient, scalable databases that ensure fast,
-              reliable access to your data, and ensure your data is organized,
-              secure, and ready to grow with your business
-            </small>
-          </div>
-
-          <div class="service rounded-3 text-center">
-            <i class="fa-solid fa-sitemap fs-1 text-primary"></i>
-            <h5 class="mt-3">System Design & Architecture</h5>
-            <small class="text-white-50 mb-0 d-block px-4">
-              create robust, scalable systems tailored to your business needs by
-              applying design principles and patterns, and ensure optimal
-              performance and clean, maintainable code
-            </small>
-          </div>
-
-          <div class="service rounded-3 text-center">
-            <i class="fa-solid fa-globe fs-1 text-primary"></i>
-            <h5 class="mt-3">Web Application Development</h5>
-            <small class="text-white-50 mb-0 d-block px-4">
-              develop dynamic, user-friendly web applications tailored to your
-              business needs, and ensure a seamless user experience while
-              maintaining security and performance across all devices
-            </small>
-          </div>
-
-          <div class="service rounded-3 text-center">
-            <i class="fa-solid fa-chart-line fs-1 text-primary"></i>
-            <h5 class="mt-3">Performance Optimization</h5>
-            <small class="text-white-50 mb-0 d-block px-4">
-              Enhance the speed and efficiency of your applications through
-              targeted performance optimization strategies, from code to
-              database queries, ensuring fast loading times and a seamless user
-              experience across all platforms
-            </small>
-          </div>
-
-          <div class="service rounded-3 text-center">
-            <i class="fa-solid fa-laptop-code fs-1 text-primary"></i>
-            <h5 class="mt-3">Desktop Application Development</h5>
-            <small class="text-white-50 mb-0 d-block px-4">
-              build powerful, user-friendly desktop applications tailored to
-              your business needs. We create efficient, secure, and scalable
-              solutions to enhance your workflow and deliver a seamless user
-              experience
-            </small>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="projects py-md-4 py-3" id="projects">
-      <div class="container my-5">
-        <h1 class="title mb-5 text-white text-center position-relative">
-          Projects
-        </h1>
-
-        <ul
-          class="nav nav-pills flex-sm-row flex-column justify-content-center gap-3"
-          role="tablist"
-        >
-          <li class="nav-item fs-5 m-0" filter-type="web-app">
-            <a
-              class="nav-link active px-sm-5 text-center rounded-4"
-              data-bs-toggle="pill"
-              href="#"
-              >Web App</a
+          <div class="nav__actions">
+            <button
+              class="icon-btn"
+              id="theme-toggle"
+              type="button"
+              aria-label="Switch to light theme"
             >
-          </li>
+              <svg class="icon" data-theme-icon aria-hidden="true">
+                <use href="#i-sun" />
+              </svg>
+            </button>
 
-          <li class="nav-item fs-5 m-0" filter-type="desktop">
-            <a
-              class="nav-link px-sm-5 text-center rounded-4"
-              data-bs-toggle="pill"
-              href="#"
-              >Desktop
+            <button
+              class="icon-btn nav__toggle"
+              id="nav-toggle"
+              type="button"
+              aria-controls="nav-menu"
+              aria-expanded="false"
+              aria-label="Open menu"
+            >
+              <svg class="icon" data-menu-icon aria-hidden="true">
+                <use href="#i-menu" />
+              </svg>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- =================================================================
+           Hero
+           ================================================================= -->
+      <section class="hero" id="home">
+        <div class="container">
+          <div>
+            <p class="hero__status">
+              <span class="dot" aria-hidden="true"></span>
+              Backend Developer · Damascus, Syria
+            </p>
+
+            <h1 class="hero__title">Taha Alsheikh Taha</h1>
+
+            <p class="hero__role">
+              I build <span class="accent">.NET</span> backends that hold up
+              under real load.
+            </p>
+
+            <p class="hero__lead">
+              Software engineer with over two years designing and implementing
+              backend solutions in ASP.NET Core — clean architecture,
+              well-modelled data, and APIs that stay maintainable as they grow.
+              Currently building the backend of a national e-learning platform.
+            </p>
+
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#projects">
+                View projects
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-arrow-right" />
+                </svg>
+              </a>
+              <a
+                class="btn btn--ghost"
+                href="assets/Taha-Alsheikh-Taha-CV.pdf"
+                download
+              >
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-download" />
+                </svg>
+                Download CV
+              </a>
+              <a
+                class="btn btn--ghost"
+                href="https://github.com/TTSE17"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-github" />
+                </svg>
+                GitHub
+              </a>
+            </div>
+
+            <dl class="hero__meta">
+              <div class="stat">
+                <dt class="stat__label">Backend experience</dt>
+                <dd class="stat__value">2+ yrs</dd>
+              </div>
+              <div class="stat">
+                <dt class="stat__label">Applications built</dt>
+                <dd class="stat__value">11</dd>
+              </div>
+              <div class="stat">
+                <dt class="stat__label">Core stack</dt>
+                <dd class="stat__value">C# / .NET</dd>
+              </div>
+            </dl>
+          </div>
+
+          <figure class="code-card">
+            <figcaption class="visually-hidden">
+              Example of how I structure application logic: a CQRS command
+              handler in C#.
+            </figcaption>
+            <div class="code-card__bar" aria-hidden="true">
+              <span class="code-card__dots">
+                <span></span><span></span><span></span>
+              </span>
+              <span class="code-card__file">EnrollStudentHandler.cs</span>
+            </div>
+            <pre tabindex="0"><code><span class="tok-com">// Application/Enrollments — CQRS handler</span>
+<span class="tok-key">public sealed class</span> <span class="tok-type">EnrollStudentHandler</span>
+    : <span class="tok-type">IRequestHandler</span>&lt;<span class="tok-type">EnrollStudent</span>, <span class="tok-type">Result</span>&lt;<span class="tok-type">Guid</span>&gt;&gt;
+{
+    <span class="tok-key">private readonly</span> <span class="tok-type">IAppDbContext</span> _db;
+
+    <span class="tok-key">public async</span> <span class="tok-type">Task</span>&lt;<span class="tok-type">Result</span>&lt;<span class="tok-type">Guid</span>&gt;&gt; <span class="tok-fn">Handle</span>(
+        <span class="tok-type">EnrollStudent</span> cmd, <span class="tok-type">CancellationToken</span> ct)
+    {
+        <span class="tok-key">var</span> course = <span class="tok-key">await</span> _db.Courses
+            .<span class="tok-fn">Include</span>(c =&gt; c.Prerequisites)
+            .<span class="tok-fn">FirstOrDefaultAsync</span>(
+                c =&gt; c.Id == cmd.CourseId, ct);
+
+        <span class="tok-key">if</span> (course <span class="tok-key">is null</span>)
+            <span class="tok-key">return</span> <span class="tok-type">Result</span>.<span class="tok-fn">NotFound</span>(<span class="tok-str">"Course not found"</span>);
+
+        <span class="tok-key">if</span> (!course.<span class="tok-fn">CanEnroll</span>(cmd.StudentId))
+            <span class="tok-key">return</span> <span class="tok-type">Result</span>.<span class="tok-fn">Conflict</span>(<span class="tok-str">"Prerequisites unmet"</span>);
+
+        <span class="tok-key">var</span> enrollment = course.<span class="tok-fn">Enroll</span>(cmd.StudentId);
+        <span class="tok-key">await</span> _db.<span class="tok-fn">SaveChangesAsync</span>(ct);
+
+        <span class="tok-key">return</span> <span class="tok-type">Result</span>.<span class="tok-fn">Created</span>(enrollment.Id);
+    }
+}</code></pre>
+          </figure>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           About & experience
+           ================================================================= -->
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section__head">
+            <p class="eyebrow">About</p>
+            <h2 class="section__title">Experience &amp; background</h2>
+          </div>
+
+          <div class="about">
+            <div class="about__text" data-reveal>
+              <p>
+                I'm a software engineer focused on the backend. Most of my work
+                is ASP.NET Core: modelling a domain properly, keeping the
+                architecture honest, and making sure the system is still easy to
+                change six months later.
+              </p>
+              <p>
+                I care about the parts that are invisible when they work —
+                authorisation, data integrity, caching, background jobs,
+                observability — and I write tests for the logic that would be
+                expensive to get wrong.
+              </p>
+
+              <dl class="about__facts">
+                <div class="fact">
+                  <dt>
+                    <svg class="icon" aria-hidden="true">
+                      <use href="#i-pin" />
+                    </svg>
+                    Location
+                  </dt>
+                  <dd>Damascus, Syria</dd>
+                </div>
+                <div class="fact">
+                  <dt>
+                    <svg class="icon" aria-hidden="true">
+                      <use href="#i-graduation" />
+                    </svg>
+                    Education
+                  </dt>
+                  <dd>
+                    B.Sc. Software Engineering — Damascus University (2021–2026)
+                  </dd>
+                </div>
+                <div class="fact">
+                  <dt>
+                    <svg class="icon" aria-hidden="true">
+                      <use href="#i-globe" />
+                    </svg>
+                    Languages
+                  </dt>
+                  <dd>Arabic (native), English (professional)</dd>
+                </div>
+              </dl>
+            </div>
+
+            <ol class="timeline" data-reveal>
+              <li class="timeline__item" data-current="true">
+                <span class="timeline__period">Jan 2026 — Present</span>
+                <h3 class="timeline__role">Backend Developer</h3>
+                <span class="timeline__org"
+                  >Interactive Training Platform — Ministry of Endowments</span
+                >
+                <p class="timeline__desc">
+                  Backend for a full-lifecycle e-learning platform: course,
+                  module and lesson management; enrolment with a gated learning
+                  path and prerequisites; auto-graded quizzes and final exams;
+                  live sessions over BigBlueButton with attendance tracking and
+                  recorded catch-up; and tamper-evident, digitally signed PDF
+                  certificates with QR-code public verification, revocation and
+                  reissue-with-history. Also supports external project
+                  evaluation with score-driven approval.
+                </p>
+                <ul class="chip-list">
+                  <li class="chip">ASP.NET Core</li>
+                  <li class="chip">Clean Architecture</li>
+                  <li class="chip">CQRS &amp; MediatR</li>
+                  <li class="chip">EF Core</li>
+                  <li class="chip">PostgreSQL</li>
+                  <li class="chip">JWT &amp; Identity</li>
+                  <li class="chip">Docker</li>
+                  <li class="chip">xUnit</li>
+                </ul>
+              </li>
+
+              <li class="timeline__item">
+                <span class="timeline__period">Mar 2025 — Sep 2025</span>
+                <h3 class="timeline__role">Freelance Backend Developer</h3>
+                <span class="timeline__org">Buffets Management System</span>
+                <p class="timeline__desc">
+                  Backend covering the full cycle of buffet operations: product
+                  management (categories, details, pricing), inventory and
+                  supply tracking with real-time stock updates, and customer
+                  order handling with status updates and notifications. Built
+                  role-based functionality for owner, staff and customer, plus
+                  admin dashboards and sales, expense and spoilage reports with
+                  Excel and PDF export.
+                </p>
+                <ul class="chip-list">
+                  <li class="chip">ASP.NET Core</li>
+                  <li class="chip">SQL Server</li>
+                  <li class="chip">EF Core</li>
+                  <li class="chip">Identity</li>
+                </ul>
+              </li>
+
+              <li class="timeline__item">
+                <span class="timeline__period">Sep 2021 — Aug 2026</span>
+                <h3 class="timeline__role">B.Sc. Software Engineering</h3>
+                <span class="timeline__org">Damascus University</span>
+                <p class="timeline__desc">
+                  Alongside the degree I shipped desktop and web applications
+                  for real workflows — clinics, driving-licence issuance, hotels
+                  and inventory — which is where most of the systems below come
+                  from.
+                </p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           Skills
+           ================================================================= -->
+      <section class="section" id="skills">
+        <div class="container">
+          <div class="section__head section__head--center">
+            <p class="eyebrow">Skills</p>
+            <h2 class="section__title">What I work with</h2>
+            <p class="section__lead">
+              The stack I reach for day to day, grouped by where it sits in a
+              system.
+            </p>
+          </div>
+
+          <div class="skills-grid">
+            <article class="skill-group" data-reveal>
+              <div class="skill-group__head">
+                <span class="skill-group__icon">
+                  <svg class="icon" aria-hidden="true"><use href="#i-code" /></svg>
+                </span>
+                <h3>Backend</h3>
+              </div>
+              <ul class="chip-list">
+                <li class="chip">C#</li>
+                <li class="chip">ASP.NET Core Web API</li>
+                <li class="chip">ASP.NET Core MVC</li>
+                <li class="chip">Minimal APIs</li>
+                <li class="chip">EF Core</li>
+                <li class="chip">Dapper</li>
+                <li class="chip">ADO.NET</li>
+                <li class="chip">LINQ</li>
+                <li class="chip">Background Services</li>
+                <li class="chip">Windows Services</li>
+              </ul>
+            </article>
+
+            <article class="skill-group" data-reveal>
+              <div class="skill-group__head">
+                <span class="skill-group__icon">
+                  <svg class="icon" aria-hidden="true"><use href="#i-database" /></svg>
+                </span>
+                <h3>Databases</h3>
+              </div>
+              <ul class="chip-list">
+                <li class="chip">SQL Server</li>
+                <li class="chip">PostgreSQL</li>
+                <li class="chip">T-SQL</li>
+                <li class="chip">Database Design</li>
+                <li class="chip">Indexing &amp; Query Tuning</li>
+              </ul>
+            </article>
+
+            <article class="skill-group" data-reveal>
+              <div class="skill-group__head">
+                <span class="skill-group__icon">
+                  <svg class="icon" aria-hidden="true"><use href="#i-architecture" /></svg>
+                </span>
+                <h3>Architecture &amp; design</h3>
+              </div>
+              <ul class="chip-list">
+                <li class="chip">Clean Architecture</li>
+                <li class="chip">CQRS &amp; MediatR</li>
+                <li class="chip">SOLID</li>
+                <li class="chip">Design Patterns</li>
+                <li class="chip">Repository &amp; Unit of Work</li>
+                <li class="chip">N-Tier</li>
+              </ul>
+            </article>
+
+            <article class="skill-group" data-reveal>
+              <div class="skill-group__head">
+                <span class="skill-group__icon">
+                  <svg class="icon" aria-hidden="true"><use href="#i-shield" /></svg>
+                </span>
+                <h3>APIs, security &amp; performance</h3>
+              </div>
+              <ul class="chip-list">
+                <li class="chip">REST</li>
+                <li class="chip">Identity &amp; JWT</li>
+                <li class="chip">API Versioning</li>
+                <li class="chip">OpenAPI / Swagger</li>
+                <li class="chip">Caching</li>
+                <li class="chip">Rate Limiting</li>
+                <li class="chip">Compression</li>
+                <li class="chip">Observability</li>
+              </ul>
+            </article>
+
+            <article class="skill-group" data-reveal>
+              <div class="skill-group__head">
+                <span class="skill-group__icon">
+                  <svg class="icon" aria-hidden="true"><use href="#i-check-circle" /></svg>
+                </span>
+                <h3>Testing</h3>
+              </div>
+              <ul class="chip-list">
+                <li class="chip">xUnit</li>
+                <li class="chip">MSTest</li>
+                <li class="chip">Unit Testing</li>
+              </ul>
+            </article>
+
+            <article class="skill-group" data-reveal>
+              <div class="skill-group__head">
+                <span class="skill-group__icon">
+                  <svg class="icon" aria-hidden="true"><use href="#i-cube" /></svg>
+                </span>
+                <h3>DevOps &amp; tooling</h3>
+              </div>
+              <ul class="chip-list">
+                <li class="chip">Docker</li>
+                <li class="chip">Orchestration</li>
+                <li class="chip">GitHub Actions CI</li>
+                <li class="chip">Central Package Management</li>
+                <li class="chip">Git &amp; GitHub</li>
+                <li class="chip">Postman</li>
+                <li class="chip">Scalar</li>
+              </ul>
+            </article>
+
+            <article class="skill-group" data-reveal>
+              <div class="skill-group__head">
+                <span class="skill-group__icon">
+                  <svg class="icon" aria-hidden="true"><use href="#i-layout" /></svg>
+                </span>
+                <h3>Front-end &amp; desktop</h3>
+              </div>
+              <ul class="chip-list">
+                <li class="chip">JavaScript</li>
+                <li class="chip">HTML5</li>
+                <li class="chip">CSS3</li>
+                <li class="chip">Bootstrap</li>
+                <li class="chip">Responsive Design</li>
+                <li class="chip">Blazor</li>
+                <li class="chip">Windows Forms</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           Projects
+           ================================================================= -->
+      <section class="section" id="projects">
+        <div class="container">
+          <div class="section__head">
+            <p class="eyebrow">Projects</p>
+            <h2 class="section__title">Systems I've built</h2>
+            <p class="section__lead">
+              Web and desktop applications, most of them modelling a real
+              business workflow end to end.
+            </p>
+          </div>
+
+          <div
+            class="filters"
+            role="group"
+            aria-label="Filter projects by platform"
+          >
+            <button class="filter" type="button" data-filter="all" aria-pressed="true">
+              All <span class="filter__count">11</span>
+            </button>
+            <button class="filter" type="button" data-filter="web" aria-pressed="false">
+              Web applications <span class="filter__count">5</span>
+            </button>
+            <button class="filter" type="button" data-filter="desktop" aria-pressed="false">
+              Desktop applications <span class="filter__count">6</span>
+            </button>
+          </div>
+
+          <p class="visually-hidden" role="status" id="filter-status"></p>
+
+          <div class="projects-grid" id="projects-grid">
+            <!-- 1. Interactive Training Platform -->
+            <article class="project" data-type="web" data-reveal>
+              <div class="project__media">
+                <div class="project__poster">
+                  <svg class="icon" aria-hidden="true"><use href="#i-graduation" /></svg>
+                </div>
+                <span class="project__badge">Featured</span>
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Interactive Training Platform</h3>
+                <p class="project__meta">
+                  Ministry of Endowments · Jan 2026 — Present
+                </p>
+                <p class="project__desc">
+                  A full-lifecycle e-learning platform: gated learning paths
+                  with prerequisites, auto-graded quizzes and final exams, live
+                  BigBlueButton sessions with attendance tracking, and digitally
+                  signed PDF certificates with QR-code public verification.
+                </p>
+                <ul class="chip-list">
+                  <li class="chip">ASP.NET Core</li>
+                  <li class="chip">CQRS</li>
+                  <li class="chip">EF Core</li>
+                  <li class="chip">PostgreSQL</li>
+                  <li class="chip">Docker</li>
+                </ul>
+                <div class="project__actions">
+                  <span class="chip">Private — client project</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. Mechanic Shop -->
+            <article class="project" data-type="web" data-reveal>
+              <div class="project__media">
+                <div class="project__poster">
+                  <svg class="icon" aria-hidden="true"><use href="#i-car" /></svg>
+                </div>
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Mechanic Shop Management System</h3>
+                <p class="project__meta">Nov 2025 — Feb 2026</p>
+                <p class="project__desc">
+                  Streamlines daily workshop operations: customers, vehicles,
+                  repair tasks and billing, with PDF invoice generation and a
+                  real-time dashboard for ongoing work orders and daily
+                  performance.
+                </p>
+                <ul class="chip-list">
+                  <li class="chip">ASP.NET Core</li>
+                  <li class="chip">Blazor</li>
+                  <li class="chip">Clean Architecture</li>
+                  <li class="chip">SQL Server</li>
+                  <li class="chip">Docker</li>
+                </ul>
+                <div class="project__actions">
+                  <a
+                    class="btn btn--sm btn--primary"
+                    href="http://mechanic.runasp.net/"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+                    Live demo
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. Buffets Management -->
+            <article class="project" data-type="web" data-reveal>
+              <div class="project__media">
+                <div class="project__poster">
+                  <svg class="icon" aria-hidden="true"><use href="#i-clipboard" /></svg>
+                </div>
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Buffets Management System</h3>
+                <p class="project__meta">Freelance · Mar 2025 — Sep 2025</p>
+                <p class="project__desc">
+                  Full buffet operations: products and pricing, inventory and
+                  supply tracking with real-time stock updates, customer orders
+                  with status notifications, role-based access for owner, staff
+                  and customer, and sales/expense/spoilage reports exportable to
+                  Excel and PDF.
+                </p>
+                <ul class="chip-list">
+                  <li class="chip">ASP.NET Core</li>
+                  <li class="chip">SQL Server</li>
+                  <li class="chip">EF Core</li>
+                  <li class="chip">Identity</li>
+                </ul>
+                <div class="project__actions">
+                  <a
+                    class="btn btn--sm btn--primary"
+                    href="https://buffet.runasp.net/swagger/index.html"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+                    API docs
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4. Facebook -->
+            <article class="project" data-type="web" data-reveal>
+              <div class="project__media">
+                <img
+                  src="imgs/fb7.webp"
+                  alt="Facebook clone — news feed with posts, likes and comments"
+                  width="1000"
+                  height="784"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Facebook Web Application</h3>
+                <p class="project__meta">Sep 2024 — Mar 2025</p>
+                <p class="project__desc">
+                  A social platform with authentication, profile management,
+                  posts, comments, likes and an activity log — plus email
+                  confirmation, account recovery and secure refresh tokens for
+                  session continuity.
+                </p>
+                <ul class="chip-list">
+                  <li class="chip">ASP.NET Core</li>
+                  <li class="chip">SQL Server</li>
+                  <li class="chip">EF Core</li>
+                  <li class="chip">JavaScript</li>
+                </ul>
+                <div class="project__actions">
+                  <a
+                    class="btn btn--sm btn--primary"
+                    href="https://ttse17.github.io/Facebook/Login_Signup/login_signup.html"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+                    Live demo
+                  </a>
+                  <a
+                    class="btn btn--sm btn--ghost"
+                    href="https://github.com/TTSE17/Facebook"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg>
+                    Code
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 5. Bank System -->
+            <article class="project" data-type="web" data-reveal>
+              <div class="project__media">
+                <img
+                  src="imgs/bs9.webp"
+                  alt="Bank System dashboard showing clients, transfers and currency figures"
+                  width="1000"
+                  height="789"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Bank System</h3>
+                <p class="project__meta">May 2024 — Jun 2024</p>
+                <p class="project__desc">
+                  Banking operations with a real-time dashboard for clients,
+                  transfers and currencies. Handles deposits, withdrawals,
+                  transfers between accounts and full transfer history.
+                </p>
+                <ul class="chip-list">
+                  <li class="chip">ASP.NET Core</li>
+                  <li class="chip">SQL Server</li>
+                  <li class="chip">EF Core</li>
+                  <li class="chip">JavaScript</li>
+                </ul>
+                <div class="project__actions">
+                  <a
+                    class="btn btn--sm btn--primary"
+                    href="https://ttse17.github.io/Bank-System/Frontend/Dashboard/dashboard.html"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+                    Live demo
+                  </a>
+                  <a
+                    class="btn btn--sm btn--ghost"
+                    href="https://github.com/TTSE17/Bank-System"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg>
+                    Code
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 6. DVLD -->
+            <article class="project" data-type="desktop" data-reveal>
+              <div class="project__media">
+                <img
+                  src="imgs/dvld4.webp"
+                  alt="Driving Licenses Management desktop app — applications and licence records"
+                  width="1000"
+                  height="645"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Driving Licenses Management</h3>
+                <p class="project__meta">Sep 2023 — Oct 2023</p>
+                <p class="project__desc">
+                  Covers the full licence lifecycle: first-time issuance,
+                  renewal, replacement for lost or damaged licences,
+                  international licences and releasing detained ones — with
+                  licence categories, applicant records and age/testing
+                  compliance rules.
+                </p>
+                <ul class="chip-list">
+                  <li class="chip">Windows Forms</li>
+                  <li class="chip">SQL Server</li>
+                  <li class="chip">ADO.NET</li>
+                  <li class="chip">N-Tier</li>
+                </ul>
+                <div class="project__actions">
+                  <a
+                    class="btn btn--sm btn--ghost"
+                    href="https://github.com/TTSE17/Window-Forms/blob/main/DVLD.zip"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg>
+                    Source
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 7. Clinic -->
+            <article class="project" data-type="desktop" data-reveal>
+              <div class="project__media">
+                <img
+                  src="imgs/clinic6.webp"
+                  alt="Clinic Management System — appointment scheduling screen"
+                  width="1000"
+                  height="734"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Clinic Management System</h3>
+                <p class="project__meta">Nov 2023 — Dec 2023</p>
+                <p class="project__desc">
+                  Manages appointments, sessions, patients, doctors, services
+                  and medications, with patient registration, scheduling and
+                  real-time appointment tracking.
+                </p>
+                <ul class="chip-list">
+                  <li class="chip">Windows Forms</li>
+                  <li class="chip">SQL Server</li>
+                  <li class="chip">ADO.NET</li>
+                </ul>
+                <div class="project__actions">
+                  <a
+                    class="btn btn--sm btn--ghost"
+                    href="https://github.com/TTSE17/Window-Forms/blob/main/Clinic.zip"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg>
+                    Source
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 8. Hotel -->
+            <article class="project" data-type="desktop" data-reveal>
+              <div class="project__media">
+                <img
+                  src="imgs/hotel2.webp"
+                  alt="Hotel Management System — reservations and room listing"
+                  width="298"
+                  height="169"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Hotel Management System</h3>
+                <p class="project__meta">Mar 2024 — Apr 2024</p>
+                <p class="project__desc">
+                  Guests, room types, rooms, reservations, bookings and
+                  services. Handles check-in and check-out, and lets services be
+                  added during a guest's stay with costs rolled into the
+                  reservation.
+                </p>
+                <ul class="chip-list">
+                  <li class="chip">Windows Forms</li>
+                  <li class="chip">SQL Server</li>
+                  <li class="chip">EF Core</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- 9. Products Management -->
+            <article class="project" data-type="desktop" data-reveal>
+              <div class="project__media">
+                <img
+                  src="imgs/pm3.webp"
+                  alt="Products Management app — inventory and order tracking"
+                  width="299"
+                  height="168"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Products Management</h3>
+                <p class="project__meta">Inventory &amp; sales</p>
+                <p class="project__desc">
+                  Inventory control for products, orders and customers, with
+                  order tracking and quick navigation across product details,
+                  prices and availability.
+                </p>
+                <ul class="chip-list">
+                  <li class="chip">Windows Forms</li>
+                  <li class="chip">SQL Server</li>
+                  <li class="chip">ADO.NET</li>
+                </ul>
+                <div class="project__actions">
+                  <a
+                    class="btn btn--sm btn--ghost"
+                    href="https://github.com/TTSE17/Window-Forms/blob/main/Products%20Management.zip"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg>
+                    Source
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 10. Institution -->
+            <article class="project" data-type="desktop" data-reveal>
+              <div class="project__media">
+                <img
+                  src="imgs/in3.webp"
+                  alt="Institution management app — student and course administration"
+                  width="1000"
+                  height="515"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Institution Management</h3>
+                <p class="project__meta">Education administration</p>
+                <p class="project__desc">
+                  Manages educational processes: student and course enrolment,
+                  course administration and teacher tracking, with separate
+                  views for administrators and students.
+                </p>
+                <ul class="chip-list">
+                  <li class="chip">Windows Forms</li>
+                  <li class="chip">SQL Server</li>
+                  <li class="chip">ADO.NET</li>
+                </ul>
+                <div class="project__actions">
+                  <a
+                    class="btn btn--sm btn--ghost"
+                    href="https://github.com/TTSE17/Window-Forms/blob/main/Institution.zip"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg>
+                    Source
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 11. Blood Bank -->
+            <article class="project" data-type="desktop" data-reveal>
+              <div class="project__media">
+                <img
+                  src="imgs/bb.webp"
+                  alt="Blood Bank app — donor records and blood stock levels"
+                  width="1000"
+                  height="421"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Blood Bank</h3>
+                <p class="project__meta">Donor &amp; stock tracking</p>
+                <p class="project__desc">
+                  Tracks donors, patients and stock levels, and moves blood
+                  between stock and patients with an availability check before
+                  every transfer, plus full transfer history.
+                </p>
+                <ul class="chip-list">
+                  <li class="chip">Windows Forms</li>
+                  <li class="chip">SQL Server</li>
+                  <li class="chip">ADO.NET</li>
+                </ul>
+                <div class="project__actions">
+                  <a
+                    class="btn btn--sm btn--ghost"
+                    href="https://github.com/TTSE17/Window-Forms/blob/main/BloodBank.zip"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg>
+                    Source
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <p class="projects-empty" id="projects-empty" hidden>
+            No projects in this category.
+          </p>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           Front-end work
+           ================================================================= -->
+      <section class="section" id="frontend">
+        <div class="container">
+          <div class="section__head">
+            <p class="eyebrow">Front-end</p>
+            <h2 class="section__title">Interface &amp; layout work</h2>
+            <p class="section__lead">
+              Responsive pages and dashboards built from scratch in HTML, CSS
+              and JavaScript — the practice behind the UI side of my full-stack
+              work.
+            </p>
+          </div>
+
+          <div class="gallery" id="gallery">
+            <a class="gallery__item" href="https://ttse17.github.io/Templates/Template%20Fourteen/Template_Fourteen.html" target="_blank" rel="noopener">
+              <img src="imgs/t142.webp" alt="Responsive landing page layout" width="1000" height="803" loading="lazy" decoding="async" />
+              <span class="gallery__caption">Responsive landing page
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+              </span>
             </a>
-          </li>
+            <a class="gallery__item" href="https://ttse17.github.io/Templates/Template%20Thirteen/Template_Thirteen.html" target="_blank" rel="noopener">
+              <img src="imgs/t136.webp" alt="Responsive landing page layout" width="1000" height="801" loading="lazy" decoding="async" />
+              <span class="gallery__caption">Responsive landing page
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+              </span>
+            </a>
+            <a class="gallery__item" href="https://ttse17.github.io/Templates/Dash%20Board/index.html" target="_blank" rel="noopener">
+              <img src="imgs/tdb2.webp" alt="Admin dashboard layout with charts and tables" width="1000" height="787" loading="lazy" decoding="async" />
+              <span class="gallery__caption">Admin dashboard
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+              </span>
+            </a>
+            <a class="gallery__item" href="https://ttse17.github.io/Templates/Template%20Ten/Template_Ten.html" target="_blank" rel="noopener">
+              <img src="imgs/t10.webp" alt="Personal portfolio page layout" width="1000" height="798" loading="lazy" decoding="async" />
+              <span class="gallery__caption">Portfolio layout
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+              </span>
+            </a>
+            <a class="gallery__item" href="https://ttse17.github.io/Templates/Template%20Twelve/Template_Twelve.html" target="_blank" rel="noopener">
+              <img src="imgs/t12.webp" alt="Admin dashboard layout" width="1000" height="810" loading="lazy" decoding="async" />
+              <span class="gallery__caption">Admin dashboard
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+              </span>
+            </a>
+            <a class="gallery__item" href="https://ttse17.github.io/Templates/Template%20Three/Template_Three.html" target="_blank" rel="noopener">
+              <img src="imgs/t33.webp" alt="Responsive landing page layout" width="1000" height="801" loading="lazy" decoding="async" />
+              <span class="gallery__caption">Responsive landing page
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+              </span>
+            </a>
 
-          <li class="nav-item fs-5 m-0" filter-type="website">
-            <a
-              class="nav-link px-sm-5 text-center rounded-4"
-              data-bs-toggle="pill"
-              href="#"
-              >Website</a
-            >
-          </li>
-        </ul>
-
-        <div class="content d-flex text-white mt-5">
-          <!-- Web Application -->
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="web-app"
-          >
-            <img decoding="async" src="imgs/fb7.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Facebook</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <span
-                  role="button"
-                  title="Read More"
-                  description-type="facebook"
-                >
-                  <i class="fa-solid fa-info-circle fs-3"></i>
-                </span>
-
-                <a
-                  href="https://TTSE17.github.io/Facebook/Login_Signup/login_signup.html"
-                  class="text-white"
-                  title="View"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
+            <a class="gallery__item" data-extra href="https://ttse17.github.io/Templates/Template%20Six/Template_Six.html" target="_blank" rel="noopener">
+              <img src="imgs/t6.webp" alt="Personal portfolio page layout" width="1000" height="802" loading="lazy" decoding="async" />
+              <span class="gallery__caption">Portfolio layout
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+              </span>
+            </a>
+            <a class="gallery__item" data-extra href="https://ttse17.github.io/Templates/Template%20Five/Template_Five.html" target="_blank" rel="noopener">
+              <img src="imgs/t5.webp" alt="Personal portfolio page layout" width="1000" height="801" loading="lazy" decoding="async" />
+              <span class="gallery__caption">Portfolio layout
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+              </span>
+            </a>
+            <a class="gallery__item" data-extra href="https://ttse17.github.io/Templates/Template%20Two/Template_Two.html" target="_blank" rel="noopener">
+              <img src="imgs/t2.webp" alt="Responsive landing page layout" width="1000" height="801" loading="lazy" decoding="async" />
+              <span class="gallery__caption">Responsive landing page
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+              </span>
+            </a>
+            <a class="gallery__item" data-extra href="https://ttse17.github.io/Templates/Template_Eight/Template_Eight.html" target="_blank" rel="noopener">
+              <img src="imgs/t8.webp" alt="Responsive landing page layout" width="1000" height="805" loading="lazy" decoding="async" />
+              <span class="gallery__caption">Responsive landing page
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+              </span>
+            </a>
+            <a class="gallery__item" data-extra href="https://ttse17.github.io/Templates/Template%20Nine/Template_Nine.html" target="_blank" rel="noopener">
+              <img src="imgs/t92.webp" alt="Responsive landing page layout" width="1000" height="801" loading="lazy" decoding="async" />
+              <span class="gallery__caption">Responsive landing page
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+              </span>
+            </a>
+            <a class="gallery__item" data-extra href="https://ttse17.github.io/Templates/Template%20Eleven/Template_Eleven.html" target="_blank" rel="noopener">
+              <img src="imgs/t11.webp" alt="Responsive landing page layout" width="1000" height="796" loading="lazy" decoding="async" />
+              <span class="gallery__caption">Responsive landing page
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+              </span>
+            </a>
+            <a class="gallery__item" data-extra href="https://ttse17.github.io/Templates/Template%20Sixteen/Template_Sixteen.html" target="_blank" rel="noopener">
+              <img src="imgs/t16.webp" alt="Responsive landing page layout" width="1000" height="796" loading="lazy" decoding="async" />
+              <span class="gallery__caption">Responsive landing page
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+              </span>
+            </a>
           </div>
 
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="web-app"
-          >
-            <img decoding="async" src="imgs/bs9.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Bank System</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <span
-                  role="button"
-                  title="Read More"
-                  description-type="bank-system"
-                >
-                  <i class="fa-solid fa-info-circle fs-3"></i>
-                </span>
-
-                <a
-                  href="https://TTSE17.github.io/Bank-System/Frontend/Dashboard/dashboard.html"
-                  class="text-white"
-                  title="View"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Desktop Application -->
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="desktop"
-          >
-            <img decoding="async" src="imgs/dvld4.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">
-                Driving Licenses Management
-              </h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <span role="button" description-type="dvld" title="Read More">
-                  <i class="fa-solid fa-info-circle fs-3"></i>
-                </span>
-
-                <a
-                  href="https://github.com/TTSE17/Window-Forms/blob/main/DVLD.zip"
-                  class="text-white"
-                  title="GitHub Code"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="desktop"
-          >
-            <img decoding="async" src="imgs/hotel2.jfif" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Hotel</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <span role="button" description-type="hotel" title="Read More">
-                  <i class="fa-solid fa-info-circle fs-3"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="desktop"
-          >
-            <img decoding="async" src="imgs/clinic6.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Clinic</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <span role="button" description-type="clinic" title="Read More">
-                  <i class="fa-solid fa-info-circle fs-3"></i>
-                </span>
-
-                <a
-                  href="https://github.com/TTSE17/Window-Forms/blob/main/Clinic.zip"
-                  class="text-white"
-                  title="GitHub Code"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="desktop"
-          >
-            <img decoding="async" src="imgs/pm3.jfif" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">
-                Products Management
-              </h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <span
-                  role="button"
-                  description-type="products-management"
-                  title="Read More"
-                >
-                  <i class="fa-solid fa-info-circle fs-3"></i>
-                </span>
-
-                <a
-                  href="https://github.com/TTSE17/Window-Forms/blob/main/Products Management.zip"
-                  class="text-white"
-                  title="GitHub Code"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="desktop"
-          >
-            <img decoding="async" src="imgs/in3.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Institution</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <span
-                  role="button"
-                  description-type="institution"
-                  title="Read More"
-                >
-                  <i class="fa-solid fa-info-circle fs-3"></i>
-                </span>
-                <a
-                  href="https://github.com/TTSE17/Window-Forms/blob/main/Institution.zip"
-                  class="text-white"
-                  title="GitHub Code"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="desktop"
-          >
-            <img decoding="async" src="imgs/bb.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Blood Bank</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <span
-                  role="button"
-                  description-type="blood-bank"
-                  title="Read More"
-                >
-                  <i class="fa-solid fa-info-circle fs-3"></i>
-                </span>
-
-                <a
-                  href="https://github.com/TTSE17/Window-Forms/blob/main/BloodBank.zip"
-                  class="text-white"
-                  title="GitHub Code"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Websites -->
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="website"
-          >
-            <img decoding="async" src="imgs/t142.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Template</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <a
-                  href="https://ttse17.github.io/Templates/Template%20Fourteen/Template_Fourteen.html"
-                  class="text-white"
-                  title="View"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="website"
-          >
-            <img decoding="async" src="imgs/t136.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Template</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <a
-                  href="https://ttse17.github.io/Templates/Template%20Thirteen/Template_Thirteen.html"
-                  class="text-white"
-                  title="View"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="website"
-          >
-            <img decoding="async" src="imgs/t33.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Template</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <a
-                  href="https://ttse17.github.io/Templates/Template%20Three/Template_Three.html"
-                  class="text-white"
-                  title="View"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="website"
-          >
-            <img decoding="async" src="imgs/tdb2.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Dashboard</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <a
-                  href="https://ttse17.github.io/Templates/Dash%20Board/index.html"
-                  class="text-white"
-                  title="View"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="website"
-          >
-            <img decoding="async" src="imgs/t10.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Portfolio</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <a
-                  href="https://ttse17.github.io/Templates/Template%20Ten/Template_Ten.html"
-                  class="text-white"
-                  title="View"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="website"
-          >
-            <img decoding="async" src="imgs/t2.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Template</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <a
-                  href="https://ttse17.github.io/Templates/Template%20Two/Template_Two.html"
-                  class="text-white"
-                  title="View"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="website"
-          >
-            <img decoding="async" src="imgs/t8.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Template</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <a
-                  href="https://ttse17.github.io/Templates/Template_Eight/Template_Eight.html"
-                  class="text-white"
-                  title="View"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="website"
-          >
-            <img decoding="async" src="imgs/t92.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Template</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <a
-                  href="https://ttse17.github.io/Templates/Template%20Nine/Template_Nine.html"
-                  class="text-white"
-                  title="View"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="website"
-          >
-            <img decoding="async" src="imgs/t6.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Portfolio</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <a
-                  href="https://ttse17.github.io/Templates/Template%20Six/Template_Six.html"
-                  class="text-white"
-                  title="View"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="website"
-          >
-            <img decoding="async" src="imgs/t16.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Template</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <a
-                  href="https://ttse17.github.io/Templates/Template%20Sixteen/Template_Sixteen.html"
-                  class="text-white"
-                  title="View"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="website"
-          >
-            <img decoding="async" src="imgs/t11.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Template</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <a
-                  href="https://ttse17.github.io/Templates/Template%20Eleven/Template_Eleven.html"
-                  class="text-white"
-                  title="View"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="website"
-          >
-            <img decoding="async" src="imgs/t5.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Portfolio</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <a
-                  href="https://ttse17.github.io/Templates/Template%20Five/Template_Five.html"
-                  class="text-white"
-                  title="View"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="project position-relative rounded-3 overflow-hidden"
-            project-type="website"
-          >
-            <img decoding="async" src="imgs/t12.png" alt="" />
-
-            <div class="info position-absolute p-md-3 p-2">
-              <h6 class="mb-0 py-1 px-2 rounded-2 bg-danger">Dashboard</h6>
-
-              <div
-                class="position-absolute top-50 start-50 w-100 d-flex align-items-center justify-content-center translate-middle gap-3"
-              >
-                <a
-                  href="https://ttse17.github.io/Templates/Template%20Twelve/Template_Twelve.html"
-                  class="text-white"
-                  title="View"
-                  target="_blank"
-                >
-                  <i class="fa-solid fa-link fs-3"></i>
-                </a>
-              </div>
-            </div>
+          <div style="text-align: center">
+            <button class="btn btn--ghost gallery-more" id="gallery-more" type="button">
+              Show all 13
+            </button>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <div class="desciption-project">
-      <button
-        class="d-none"
-        data-bs-toggle="modal"
-        data-bs-target="#manage-post"
-      ></button>
+      <!-- =================================================================
+           Services
+           ================================================================= -->
+      <section class="section" id="services">
+        <div class="container">
+          <div class="section__head section__head--center">
+            <p class="eyebrow">Services</p>
+            <h2 class="section__title">How I can help</h2>
+          </div>
 
-      <div
-        class="modal fade"
-        id="manage-post"
-        data-bs-backdrop="static"
-        data-bs-keyboard="false"
-        tabindex="-1"
-        aria-labelledby="staticBackdropLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h3 class="modal-title flex-grow-1 text-center">Details</h3>
+          <div class="services-grid">
+            <article class="service" data-reveal>
+              <span class="service__icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-server" /></svg>
+              </span>
+              <h3>Backend development</h3>
+              <p>
+                Secure, scalable ASP.NET Core services built around your domain
+                — with the authorisation, validation and error handling done
+                properly rather than bolted on later.
+              </p>
+            </article>
 
-              <button
-                type="button"
-                class="btn-close shadow-none"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
+            <article class="service" data-reveal>
+              <span class="service__icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-database" /></svg>
+              </span>
+              <h3>Database design &amp; management</h3>
+              <p>
+                Schemas that stay correct as requirements shift, with indexing
+                and query tuning so reads stay fast when the data grows past the
+                demo dataset.
+              </p>
+            </article>
 
-            <div class="modal-body fs-5"></div>
+            <article class="service" data-reveal>
+              <span class="service__icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-architecture" /></svg>
+              </span>
+              <h3>System design &amp; architecture</h3>
+              <p>
+                Clean Architecture and CQRS applied where they earn their keep —
+                clear boundaries, testable business rules and code the next
+                developer can follow.
+              </p>
+            </article>
+
+            <article class="service" data-reveal>
+              <span class="service__icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-globe" /></svg>
+              </span>
+              <h3>Web application development</h3>
+              <p>
+                End-to-end web applications — API, data layer and interface —
+                that work on every screen size without losing security or
+                performance along the way.
+              </p>
+            </article>
+
+            <article class="service" data-reveal>
+              <span class="service__icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-chart" /></svg>
+              </span>
+              <h3>Performance optimisation</h3>
+              <p>
+                Finding where the time actually goes — N+1 queries, missing
+                indexes, uncached hot paths — and fixing it with measurements
+                rather than guesses.
+              </p>
+            </article>
+
+            <article class="service" data-reveal>
+              <span class="service__icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-desktop" /></svg>
+              </span>
+              <h3>Desktop application development</h3>
+              <p>
+                Windows Forms applications for internal workflows, built on the
+                same layered design as my web work so the business logic stays
+                reusable.
+              </p>
+            </article>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <div class="contact py-md-4 py-3" id="contact">
-      <div class="container my-5">
-        <h1 class="title mb-5 text-white text-center position-relative">
-          Contact
-        </h1>
+      <!-- =================================================================
+           Contact
+           ================================================================= -->
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="section__head section__head--center">
+            <p class="eyebrow">Contact</p>
+            <h2 class="section__title">Get in touch</h2>
+          </div>
 
-        <div
-          class="content d-flex justify-content-md-between justify-content-center"
-        >
-          <div
-            class="w-100 d-flex gap-md-0 gap-5 flex-column flex-md-row justify-content-between align-items-center text-white"
-          >
-            <div class="box d-flex align-items-center gap-3">
-              <div
-                class="icon d-flex align-items-center justify-content-center rounded-circle bg-primary"
-              >
-                <i class="fa-solid fa-location-dot fs-2"></i>
-              </div>
-
-              <div class="info">
-                <h5>Address</h5>
-                <small class="text-white-50">Damascus, Syria</small>
+          <div class="contact-grid">
+            <div class="contact-card" data-reveal>
+              <span class="contact-card__icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-pin" /></svg>
+              </span>
+              <div>
+                <h3>Location</h3>
+                <p>Damascus, Syria</p>
               </div>
             </div>
 
-            <div class="box d-flex align-items-center gap-3">
-              <div
-                class="icon d-flex align-items-center justify-content-center rounded-circle bg-primary"
-              >
-                <i class="fa-solid fa-envelope fs-2"></i>
-              </div>
-
-              <div class="info">
-                <h5>Email</h5>
-                <small class="text-white-50"
-                  >Taha.Alsheikh.Taha@gmail.com</small
+            <div class="contact-card" data-reveal>
+              <span class="contact-card__icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg>
+              </span>
+              <div>
+                <h3>Email</h3>
+                <a
+                  class="contact-card__value"
+                  href="mailto:Taha.Alsheikh.Taha@gmail.com"
+                  >Taha.Alsheikh.Taha@gmail.com</a
                 >
               </div>
             </div>
 
-            <div class="box d-flex align-items-center gap-3">
-              <div
-                class="icon d-flex align-items-center justify-content-center rounded-circle bg-primary"
-              >
-                <i class="fa-solid fa-share-nodes fs-2"></i>
-              </div>
-
-              <div class="info">
-                <h5>Social Profiles</h5>
-                <div class="social d-flex justify-content-between gap-2">
+            <div class="contact-card" data-reveal>
+              <span class="contact-card__icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-share" /></svg>
+              </span>
+              <div>
+                <h3>Profiles</h3>
+                <div class="social">
                   <a
                     href="https://www.linkedin.com/in/TTSE17"
                     target="_blank"
-                    class="d-flex align-items-center justify-content-center bg-white rounded-3"
-                    ><i class="fa-brands fa-linkedin-in"></i>
+                    rel="noopener"
+                    data-brand="linkedin"
+                    aria-label="LinkedIn profile"
+                  >
+                    <svg class="icon" aria-hidden="true"><use href="#i-linkedin" /></svg>
                   </a>
-
                   <a
                     href="https://github.com/TTSE17"
                     target="_blank"
-                    class="d-flex align-items-center justify-content-center bg-white rounded-3"
-                    ><i class="fa-brands fa-github"></i>
+                    rel="noopener"
+                    data-brand="github"
+                    aria-label="GitHub profile"
+                  >
+                    <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg>
                   </a>
-
                   <a
                     href="https://t.me/TTSE17"
                     target="_blank"
-                    class="d-flex align-items-center justify-content-center bg-white rounded-3"
+                    rel="noopener"
+                    data-brand="telegram"
+                    aria-label="Telegram"
                   >
-                    <i class="fa-brands fa-telegram"></i>
+                    <svg class="icon" aria-hidden="true"><use href="#i-telegram" /></svg>
                   </a>
-
                   <a
-                    href="https://www.facebook.com/TTSE17"
+                    href="https://api.whatsapp.com/send/?phone=%2B963992693501"
                     target="_blank"
-                    class="d-flex align-items-center justify-content-center bg-white rounded-3"
+                    rel="noopener"
+                    data-brand="whatsapp"
+                    aria-label="WhatsApp"
                   >
-                    <i class="fa-brands fa-facebook"></i>
+                    <svg class="icon" aria-hidden="true"><use href="#i-whatsapp" /></svg>
                   </a>
                 </div>
               </div>
             </div>
           </div>
+
+          <div class="contact-cta" data-reveal>
+            <div>
+              <h3>Have a backend that needs building?</h3>
+              <p>
+                Tell me what the system has to do — I'll tell you how I'd build
+                it.
+              </p>
+            </div>
+            <a
+              class="btn btn--primary"
+              href="mailto:Taha.Alsheikh.Taha@gmail.com?subject=Project%20enquiry"
+            >
+              <svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg>
+              Send me an email
+            </a>
+          </div>
         </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; <span id="year">2026</span> Taha Alsheikh Taha</p>
+        <p>Built from scratch — no CSS framework, no icon font.</p>
       </div>
-    </div>
+    </footer>
 
-    <div class="copyright py-md-4 py-3 text-center text-white-50 fs-5">
-      Copyright © 2024 Taha Taha . All Rights Reserved.
-    </div>
+    <button class="to-top" id="to-top" type="button" aria-label="Back to top">
+      <svg class="icon" aria-hidden="true"><use href="#i-arrow-up" /></svg>
+    </button>
 
-    <script src="Js/BS/bootstrap.bundle.min.js"></script>
-    <script src="Js/BS/all.min.js"></script>
-    <script src="Js/main.js"></script>
+    <script src="Js/app.js" defer></script>
   </body>
 </html>
